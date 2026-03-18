@@ -1,0 +1,50 @@
+* Nomination ID,Related Apps,Nomination Name,Nomination Type,Nomination Description,Publish Date (Start),Publish Date (End),Relevant Countries or Regions,Do you plan to launch in certain markets first?,Do you intend to submit a new in-app event for this nomination?,Related In-App Events,Platforms,Localization,Supplemental Materials,Does this app or game include a pre-order?,Helpful Details
+"* Only required for nomination updates. If you are submitting a new 
+nomination, leave this blank.","Enter the Apple ID of the app this nomination is associated with. 
+You may also enter the Apple IDs of up to 9 additional apps related 
+to this nomination, separated by commas.","Enter a name to help you recognize this nomination later. 
+60 character maximum.","Enter the type of nomination exactly as it appears below:
+
+New Content
+App Enhancements
+App Launch
+","Enter a description for your nomination. 1,000 character maximum.","Enter either the date you plan to publish on the App Store or the 
+start date of a time frame in which you expect to publish. Use the 
+format YYYY-MM-DD. It's recommended you provide this date at least 
+3 weeks before your launch.","If providing a time frame for when you expect to publish on the 
+App Store, enter the last date of that time frame here. Use 
+the format YYYY-MM-DD.","Enter all relevant countries or regions, separated by commas and using 
+their 3-letter ISO code (https://developer.apple.com/help/app-store-connect/reference/app-store-localizations).",Enter Yes or No,Enter Yes or No,"Enter a maximum of 25 in-app event IDs, separated by commas.","Enter the name of all platforms supported in this nomination exactly 
+as they appear below. Separate each by a comma.
+
+iOS (iPhone)
+iOS (iPad)
+macOS
+tvOS
+watchOS
+visionOS
+","Enter all localized languages, separated by commas. 
+(https://developer.apple.com/documentation/appstoreconnectapi/
+app_store/app_metadata/app_info_localizations/managing_metadata_
+in_your_app_by_using_locale_shortcodes)","Enter up to 5 URL links to any additional materials you'd like to 
+include.",Enter Yes or No,"We want to know what makes you stand out from the crowd. For example, 
+a unique approach to helping users or a behind-the-scenes look at an 
+inclusive team. 500 character maximum."
+* Optional,Required,Required,Required,Required,Required,Optional,Optional,Optional,Optional,Optional,Optional,Optional,Optional,Optional,Optional
+"* Enter the details of your nominations below. Each nomination should have its own row. Keep in mind that any information you provide is not considered confidential. To learn more, go to https://developer.apple.com/help/app-store-connect/reference/nominations-template.",* ,* ,* ,* ,* ,* ,* ,* ,* ,* ,* ,* ,* ,* ,* 
+,6758351507,SnapSong AI Music from Photos - Launch,App Launch,"SnapSong transforms any photo into a complete original song — with real vocals, lyrics, and custom cover art — all powered by AI. Users capture or select a photo, and within minutes receive two unique full-length tracks inspired by the image's mood, colors, and story.
+
+What makes SnapSong stand out:
+• Turns photos into real, full-length songs in minutes — fast, simple, no musical skills needed
+• Built natively with SwiftUI for iOS 26 with polished Liquid Glass design
+• Full accessibility: VoiceOver, Dynamic Type, Reduce Motion
+• Song generation in 5 languages: English, Portuguese, Spanish, French, German
+• Live Activities for real-time generation progress on the lock screen
+• On-device Creative Intelligence via Apple Foundation Models: analyzes song history to suggest fresh keywords, detect repetitive patterns, and recommend unexplored genres — all privately on-device
+• Privacy-first: all songs and photos stored locally on device
+
+While other music AI apps focus on advanced production tools, SnapSong makes creating real music effortless — just a photo and a few keywords are all it takes.",2026-03-24,2026-03-31,"USA,GBR,CAN,AUS,NZL,IRL,BRA,PRT,MEX,ESP,ARG,CHL,COL,PER,ECU,VEN,CRI,PAN,URY,PRY,BOL,DOM,GTM,HND,SLV,NIC,FRA,BEL,DEU,AUT,CHE,ITA,JPN,KOR,CHN,HKG,TWN,SGP,IND,RUS,TUR,SAU,ARE,EGY,THA,VNM,IDN,MYS,POL,NLD,SWE,NOR,DNK,FIN,CZE,SVK,HUN,HRV,ROU,UKR,ISR,GRC,PHL,ZAF",No,No,,"iOS (iPhone),iOS (iPad)","en-US,fr-FR,de-DE,es-MX,pt-BR",,Yes,"Built for iOS 26 with Liquid Glass. Apple Foundation Models power a Creative Intelligence Engine that learns from your song history on-device to suggest fresh keywords, detect repetitive patterns, and recommend unexplored genres — all private. Full a11y (VoiceOver, Dynamic Type, Reduce Motion). Developer: 3x WWDC Scholar (2015/17/18), Apple Developer Academy alumnus (BEPiD 2015). Deep respect for Apple HIG."
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
