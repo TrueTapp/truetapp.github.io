@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapSong — Turn Photos into Music</title>
+    <link rel="icon" type="image/png" href="presskit/favicon.png">
+    <meta name="description" content="SnapSong transforma qualquer foto em uma música original com IA.">
+    <meta property="og:title" content="SnapSong — Turn Photos into Music">
+    <meta property="og:description" content="Point your camera at any moment. Get an original song in seconds.">
+    <meta property="og:image" content="presskit/og_card.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 2rem;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(255, 0, 46, 0.25);
+        }
+
+        .app-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #FF002E 0%, #FF6B35 50%, #FFB347 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.55);
+            max-width: 320px;
+            line-height: 1.5;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,0,46,0.4), transparent);
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .link-primary {
+            background: linear-gradient(135deg, #FF002E, #FF2066);
+            color: #fff;
+        }
+
+        .link-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(255, 0, 46, 0.35);
+        }
+
+        .link-secondary {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .link-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: rgba(255,255,255,0.55);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="presskit/icon_256.png" alt="SnapSong" class="icon">
+        <div class="app-name">SnapSong</div>
+        <div class="tagline">Turn photos into music.<br>Em breve na App Store.</div>
+        <div class="divider"></div>
+        <div class="links">
+            <a href="presskit/" class="link-secondary">Press Kit</a>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="../">TrueTapp</a>
+        <span>&middot;</span>
+        <span>&copy; 2026</span>
+    </div>
+</body>
+</html>
