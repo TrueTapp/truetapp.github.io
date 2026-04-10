@@ -214,6 +214,12 @@ const TrueTappI18n = (() => {
             const lang = currentLang === 'en' ? 'en' : currentLang;
             img.src = '/snapsong/assets/img/appstore-badge-' + lang + '.svg';
         });
+
+        // Swap white App Store badge images based on language
+        document.querySelectorAll('[data-i18n-badge="appstore-white"]').forEach((img) => {
+            const lang = currentLang === 'en' ? 'en' : currentLang;
+            img.src = '/snapsong/assets/img/appstore-badge-white-' + lang + '.svg';
+        });
     };
 
     // ─────────────────────────────────────────────────────────────────
