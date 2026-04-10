@@ -222,13 +222,13 @@ nav .container {
     color: white;
     border: none;
     cursor: pointer;
-    background: linear-gradient(135deg, #FF6B35, #FF8F5A, #FFB347);
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-pink), var(--accent-orange));
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-download:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+    box-shadow: 0 6px 20px rgba(255, 0, 46, 0.35);
 }
 
 .btn-download:active {
