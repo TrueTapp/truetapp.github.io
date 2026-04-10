@@ -208,6 +208,12 @@ const TrueTappI18n = (() => {
 
         // Update language switcher to show current language
         updateLanguageSwitcher();
+
+        // Swap App Store badge images based on language
+        document.querySelectorAll('[data-i18n-badge="appstore"]').forEach((img) => {
+            const lang = currentLang === 'en' ? 'en' : currentLang;
+            img.src = '/snapsong/assets/img/appstore-badge-' + lang + '.svg';
+        });
     };
 
     // ─────────────────────────────────────────────────────────────────

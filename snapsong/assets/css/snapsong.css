@@ -30,6 +30,25 @@
 }
 .btn-secondary:hover { transform: translateY(-2px); background: rgba(255,255,255,0.1); }
 
+/* ── App Store Badge ── */
+.appstore-badge-nav img,
+.appstore-badge-hero img {
+    transition: transform 0.2s, opacity 0.2s;
+}
+.appstore-badge-nav img:hover,
+.appstore-badge-hero img:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+.appstore-badge-nav {
+    display: inline-flex;
+    align-items: center;
+}
+.appstore-badge-hero {
+    display: inline-flex;
+    align-items: center;
+}
+
 /* ── Showcase ── */
 .showcase { padding: 40px 0 100px; }
 .showcase-grid {
@@ -527,6 +546,13 @@
 
 .downloads-label:first-of-type {
     margin-top: 0;
+}
+
+/* ── Footer Legal ── */
+.footer-legal {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 8px;
 }
 
 /* ── Responsive ── */
