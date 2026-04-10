@@ -305,6 +305,7 @@ nav .container {
     border: 1px solid var(--glass-stroke);
     color: var(--text-secondary);
     cursor: pointer;
+    font-family: inherit;
     font-size: 13px;
     font-weight: 600;
     transition: all 0.2s;
@@ -343,7 +344,7 @@ nav .container {
     padding: 8px 0;
 }
 
-.lang-switcher:hover .lang-dropdown {
+.lang-dropdown.visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -354,12 +355,17 @@ nav .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     padding: 10px 16px;
+    background: none;
+    border: none;
     color: var(--text-secondary);
     cursor: pointer;
+    font-family: inherit;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.15s;
+    text-align: left;
 }
 
 .lang-option:hover {
@@ -376,11 +382,12 @@ nav .container {
     width: 14px;
     height: 14px;
     margin-left: 8px;
-    display: none;
-}
-
-.lang-option.active .checkmark {
-    display: inline-block;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
 }
 
 /* ─────────────────────────────────────────────────────────────────────

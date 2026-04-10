@@ -42,6 +42,7 @@ const TrueTappI18n = (() => {
 
     let currentLang = DEFAULT_LANG;
     let translations = {};
+    let originalTexts = {}; // Stores original English text from HTML
 
     // ─────────────────────────────────────────────────────────────────
     // Helper: Detect user's preferred language
@@ -112,60 +113,96 @@ const TrueTappI18n = (() => {
     };
 
     // ─────────────────────────────────────────────────────────────────
-    // Get translation by key (dot notation)
+    // Get translation by key (flat lookup — keys contain dots literally)
     // ─────────────────────────────────────────────────────────────────
 
     const getTranslation = (key) => {
-        const keys = key.split('.');
-        let value = translations;
-
-        for (const k of keys) {
-            if (value && typeof value === 'object' && k in value) {
-                value = value[k];
-            } else {
-                return null;
-            }
+        // Direct flat key lookup (keys are like "hero.title.line1" as strings)
+        if (key in translations) {
+            return translations[key];
         }
-
-        return typeof value === 'string' ? value : null;
+        return null;
     };
 
     // ─────────────────────────────────────────────────────────────────
     // Apply translations to DOM
     // ─────────────────────────────────────────────────────────────────
 
+    // Store original English texts from HTML on first run
+    const storeOriginalTexts = () => {
+        if (Object.keys(originalTexts).length > 0) return; // Already stored
+
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+            const key = element.getAttribute('data-i18n');
+            // Store innerHTML to preserve any inner HTML tags (like spans)
+            originalTexts[key] = {
+                html: element.innerHTML,
+                text: element.textContent
+            };
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            originalTexts['__ph__' + key] = { text: element.placeholder };
+        });
+
+        document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-title');
+            originalTexts['__title__' + key] = { text: element.title };
+        });
+    };
+
     const applyTranslations = () => {
         // Update HTML lang attribute
-        document.documentElement.lang = currentLang;
+        const langAttr = currentLang === 'pt-br' ? 'pt-BR' : currentLang;
+        document.documentElement.lang = langAttr;
 
         // Find all elements with data-i18n attributes
         document.querySelectorAll('[data-i18n]').forEach((element) => {
             const key = element.getAttribute('data-i18n');
-            const translation = getTranslation(key);
 
-            // Use translation if available, otherwise keep HTML text as fallback
-            if (translation) {
-                element.textContent = translation;
+            if (currentLang === 'en') {
+                // Restore original English text
+                const original = originalTexts[key];
+                if (original) {
+                    element.innerHTML = original.html;
+                }
+            } else {
+                const translation = getTranslation(key);
+                if (translation) {
+                    // Check if translation contains HTML
+                    if (translation.includes('<')) {
+                        element.innerHTML = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
+                }
             }
         });
 
         // Find all inputs with data-i18n-placeholder
         document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
             const key = element.getAttribute('data-i18n-placeholder');
-            const translation = getTranslation(key);
 
-            if (translation) {
-                element.placeholder = translation;
+            if (currentLang === 'en') {
+                const original = originalTexts['__ph__' + key];
+                if (original) element.placeholder = original.text;
+            } else {
+                const translation = getTranslation(key);
+                if (translation) element.placeholder = translation;
             }
         });
 
         // Find all elements with data-i18n-title
         document.querySelectorAll('[data-i18n-title]').forEach((element) => {
             const key = element.getAttribute('data-i18n-title');
-            const translation = getTranslation(key);
 
-            if (translation) {
-                element.title = translation;
+            if (currentLang === 'en') {
+                const original = originalTexts['__title__' + key];
+                if (original) element.title = original.text;
+            } else {
+                const translation = getTranslation(key);
+                if (translation) element.title = translation;
             }
         });
 
@@ -205,28 +242,48 @@ const TrueTappI18n = (() => {
         for (const [code, name] of Object.entries(SUPPORTED_LANGUAGES)) {
             const option = document.createElement('button');
             option.className = 'lang-option';
+            option.setAttribute('data-lang', code);
             if (code === currentLang) {
                 option.classList.add('active');
             }
 
-            option.innerHTML = `
-                <span>${name}</span>
-                ${
-                    code === currentLang
-                        ? `<svg class="checkmark" viewBox="0 0 24 24" width="14" height="14">
-                           <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>`
-                        : ''
-                }
-            `;
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = name;
+            option.appendChild(nameSpan);
+
+            if (code === currentLang) {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.classList.add('checkmark');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                svg.setAttribute('width', '14');
+                svg.setAttribute('height', '14');
+                const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+                polyline.setAttribute('points', '20 6 9 17 4 12');
+                svg.appendChild(polyline);
+                option.appendChild(svg);
+            }
 
             option.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+                dropdown.classList.remove('visible');
                 setLang(code);
             });
 
             dropdown.appendChild(option);
         }
+
+        // Toggle dropdown on click
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('visible');
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('visible');
+        });
 
         switcher.appendChild(btn);
         switcher.appendChild(dropdown);
@@ -238,32 +295,31 @@ const TrueTappI18n = (() => {
         if (btn) {
             const span = btn.querySelector('span');
             if (span) {
-                span.textContent = currentLang.toUpperCase();
+                const displayCode = currentLang === 'pt-br' ? 'PT-BR' : currentLang.toUpperCase();
+                span.textContent = displayCode;
             }
         }
 
         document.querySelectorAll('.lang-option').forEach((option) => {
-            const code = Array.from(SUPPORTED_LANGUAGES.keys()).find(
-                (c) => SUPPORTED_LANGUAGES[c] === option.textContent.trim().split('\n')[0]
-            );
+            const code = option.getAttribute('data-lang');
 
             if (code === currentLang) {
                 option.classList.add('active');
                 if (!option.querySelector('.checkmark')) {
-                    const checkmark = document.createElement('svg');
-                    checkmark.className = 'checkmark';
-                    checkmark.setAttribute('viewBox', '0 0 24 24');
-                    checkmark.setAttribute('width', '14');
-                    checkmark.setAttribute('height', '14');
-                    checkmark.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
-                    option.appendChild(checkmark);
+                    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.classList.add('checkmark');
+                    svg.setAttribute('viewBox', '0 0 24 24');
+                    svg.setAttribute('width', '14');
+                    svg.setAttribute('height', '14');
+                    const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+                    polyline.setAttribute('points', '20 6 9 17 4 12');
+                    svg.appendChild(polyline);
+                    option.appendChild(svg);
                 }
             } else {
                 option.classList.remove('active');
                 const checkmark = option.querySelector('.checkmark');
-                if (checkmark) {
-                    checkmark.remove();
-                }
+                if (checkmark) checkmark.remove();
             }
         });
     };
@@ -273,6 +329,9 @@ const TrueTappI18n = (() => {
     // ─────────────────────────────────────────────────────────────────
 
     const init = async () => {
+        // Store original English texts from HTML before any translation
+        storeOriginalTexts();
+
         // Detect preferred language
         currentLang = detectLanguage();
 
