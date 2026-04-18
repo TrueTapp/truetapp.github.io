@@ -8,10 +8,12 @@
  *   - Add data-i18n="key.path" to elements for text translation
  *   - Add data-i18n-placeholder="key.path" to inputs
  *   - Add data-i18n-title="key.path" to elements for title attributes
+ *   - Add data-i18n-head="key.path" to <title> nodes
+ *   - Add data-i18n-content="key.path" to <meta> tags with content attributes
  *
  * Language Support: en, pt-br, es, fr, de
  * Storage: localStorage (key: 'truetapp-lang')
- * Fallback: navigator.language or 'en'
+ * Fallback: navigator.languages -> navigator.language -> 'en'
  *
  * API:
  *   TrueTappI18n.init()           - Initialize on page load
@@ -42,37 +44,65 @@ const TrueTappI18n = (() => {
 
     let currentLang = DEFAULT_LANG;
     let translations = {};
-    let originalTexts = {}; // Stores original English text from HTML
+    let originalTexts = {}; // Stores original English content from HTML/head
 
     // ─────────────────────────────────────────────────────────────────
     // Helper: Detect user's preferred language
     // ─────────────────────────────────────────────────────────────────
 
+    const normalizeLanguageCode = (code) => {
+        if (typeof code !== 'string') {
+            return null;
+        }
+
+        const normalized = code.trim().toLowerCase().replace(/_/g, '-');
+        if (!normalized) {
+            return null;
+        }
+
+        if (SUPPORTED_LANGUAGES[normalized]) {
+            return normalized;
+        }
+
+        switch (normalized.split('-')[0]) {
+            case 'en':
+                return 'en';
+            case 'pt':
+                return 'pt-br';
+            case 'es':
+                return 'es';
+            case 'fr':
+                return 'fr';
+            case 'de':
+                return 'de';
+            default:
+                return null;
+        }
+    };
+
     const detectLanguage = () => {
         // 1. Check localStorage
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored && SUPPORTED_LANGUAGES[stored]) {
+        const stored = normalizeLanguageCode(localStorage.getItem(STORAGE_KEY));
+        if (stored) {
             return stored;
         }
 
-        // 2. Check browser language
-        let navLang = navigator.language || navigator.userLanguage || '';
-        navLang = navLang.toLowerCase().replace('_', '-');
-
-        // Direct match (e.g., 'pt-br' or 'en')
-        if (SUPPORTED_LANGUAGES[navLang]) {
-            return navLang;
-        }
-
-        // Prefix match (e.g., 'pt' maps to 'pt-br')
-        const langPrefix = navLang.split('-')[0];
-        for (const [code] of Object.entries(SUPPORTED_LANGUAGES)) {
-            if (code.startsWith(langPrefix)) {
-                return code;
+        // 2. Check browser preferred languages in priority order
+        const preferredLanguages = Array.isArray(navigator.languages) ? navigator.languages : [];
+        for (const language of preferredLanguages) {
+            const normalized = normalizeLanguageCode(language);
+            if (normalized) {
+                return normalized;
             }
         }
 
-        // 3. Fallback to English
+        // 3. Fallback to a single browser language value
+        const navLang = normalizeLanguageCode(navigator.language || navigator.userLanguage || '');
+        if (navLang) {
+            return navLang;
+        }
+
+        // 4. Fallback to English
         return DEFAULT_LANG;
     };
 
@@ -150,6 +180,18 @@ const TrueTappI18n = (() => {
             const key = element.getAttribute('data-i18n-title');
             originalTexts['__title__' + key] = { text: element.title };
         });
+
+        document.querySelectorAll('[data-i18n-head]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-head');
+            originalTexts['__head__' + key] = { text: element.textContent };
+        });
+
+        document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-content');
+            originalTexts['__content__' + key] = {
+                text: element.getAttribute('content') || ''
+            };
+        });
     };
 
     const applyTranslations = () => {
@@ -169,12 +211,17 @@ const TrueTappI18n = (() => {
                 }
             } else {
                 const translation = getTranslation(key);
-                if (translation) {
+                if (translation !== null) {
                     // Check if translation contains HTML
                     if (translation.includes('<')) {
                         element.innerHTML = translation;
                     } else {
                         element.textContent = translation;
+                    }
+                } else {
+                    const original = originalTexts[key];
+                    if (original) {
+                        element.innerHTML = original.html;
                     }
                 }
             }
@@ -189,7 +236,12 @@ const TrueTappI18n = (() => {
                 if (original) element.placeholder = original.text;
             } else {
                 const translation = getTranslation(key);
-                if (translation) element.placeholder = translation;
+                if (translation !== null) {
+                    element.placeholder = translation;
+                } else {
+                    const original = originalTexts['__ph__' + key];
+                    if (original) element.placeholder = original.text;
+                }
             }
         });
 
@@ -202,7 +254,46 @@ const TrueTappI18n = (() => {
                 if (original) element.title = original.text;
             } else {
                 const translation = getTranslation(key);
-                if (translation) element.title = translation;
+                if (translation !== null) {
+                    element.title = translation;
+                } else {
+                    const original = originalTexts['__title__' + key];
+                    if (original) element.title = original.text;
+                }
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-head]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-head');
+
+            if (currentLang === 'en') {
+                const original = originalTexts['__head__' + key];
+                if (original) element.textContent = original.text;
+            } else {
+                const translation = getTranslation(key);
+                if (translation !== null) {
+                    element.textContent = translation;
+                } else {
+                    const original = originalTexts['__head__' + key];
+                    if (original) element.textContent = original.text;
+                }
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+            const key = element.getAttribute('data-i18n-content');
+
+            if (currentLang === 'en') {
+                const original = originalTexts['__content__' + key];
+                if (original) element.setAttribute('content', original.text);
+            } else {
+                const translation = getTranslation(key);
+                if (translation !== null) {
+                    element.setAttribute('content', translation);
+                } else {
+                    const original = originalTexts['__content__' + key];
+                    if (original) element.setAttribute('content', original.text);
+                }
             }
         });
 
@@ -360,18 +451,19 @@ const TrueTappI18n = (() => {
     };
 
     const setLang = async (code) => {
-        if (!SUPPORTED_LANGUAGES[code]) {
+        const normalizedCode = normalizeLanguageCode(code);
+        if (!normalizedCode || !SUPPORTED_LANGUAGES[normalizedCode]) {
             console.warn(`Language ${code} not supported`);
             return false;
         }
 
-        currentLang = code;
+        currentLang = normalizedCode;
 
         // Persist choice
-        localStorage.setItem(STORAGE_KEY, code);
+        localStorage.setItem(STORAGE_KEY, normalizedCode);
 
         // Load new translations
-        await loadTranslations(code);
+        await loadTranslations(normalizedCode);
 
         // Apply to DOM
         applyTranslations();

@@ -55,5 +55,7 @@
   "faq.trouble.slow.q": "Warum dauert die Generierung länger als gewöhnlich?",
   "faq.trouble.slow.a": "Die Generierungsdauer hängt von der Serverauslastung und Ihrer Internetverbindung ab. Audio in hoher Qualität dauert etwas länger. Wenn es länger als 10 Minuten dauert, versuchen Sie zu stornieren und erneut zu versuchen.",
   "faq.trouble.contact.q": "Ich habe eine weitere Frage. Wie kann ich Hilfe bekommen?",
-  "faq.trouble.contact.a": "Sie können uns jederzeit unter <a href=\"mailto:snapsong@truetapp.com\">snapsong@truetapp.com</a> erreichen. Wir werden Ihnen so schnell wie möglich antworten."
+  "faq.trouble.contact.a": "Sie können uns jederzeit unter <a href=\"mailto:snapsong@truetapp.com\">snapsong@truetapp.com</a> erreichen. Wir werden Ihnen so schnell wie möglich antworten.",
+  "meta.title": "Häufige Fragen — SnapSong",
+  "meta.description": "SnapSong-FAQ — Häufig gestellte Fragen zur KI-Musikgenerierung aus Fotos."
 }

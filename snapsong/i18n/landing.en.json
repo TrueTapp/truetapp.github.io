@@ -78,5 +78,9 @@
   "finalCta.cta": "Download on the App Store",
   "finalCta.subtitle": "Download SnapSong and turn any moment into music.",
   "finalCta.title.line1": "Your photos have a soundtrack.",
-  "finalCta.title.line2": "You just haven't heard it yet."
+  "finalCta.title.line2": "You just haven't heard it yet.",
+  "meta.title": "SnapSong — Turn Photos into Music",
+  "meta.description": "SnapSong transforms any photo into an original song with AI. Point your camera, get a unique song with custom lyrics in seconds.",
+  "meta.ogTitle": "SnapSong — Turn Photos into Music",
+  "meta.ogDescription": "Point your camera at any moment. Get an original song with custom lyrics in seconds."
 }

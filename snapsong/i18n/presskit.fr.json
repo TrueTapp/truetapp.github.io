@@ -80,5 +80,9 @@
   "presskit.contact.email": "press@snapsong.app",
   "presskit.contact.website": "snapsong.app",
   "presskit.contact.twitter": "@snapsongapp",
-  "presskit.contact.response": "Disponible pour les entrevues, les démos et les critiques de produits. Temps de réponse typique: 48 heures."
+  "presskit.contact.response": "Disponible pour les entrevues, les démos et les critiques de produits. Temps de réponse typique: 48 heures.",
+  "meta.title": "SnapSong — Transformez vos photos en musique",
+  "meta.description": "SnapSong transforme n'importe quelle photo en chanson originale avec l'IA. Pointez votre caméra sur n'importe quel moment et obtenez une chanson unique avec des paroles personnalisées en quelques secondes.",
+  "meta.ogTitle": "SnapSong — Transformez vos photos en musique",
+  "meta.ogDescription": "Pointez votre caméra sur n'importe quel moment. Obtenez une chanson originale avec des paroles personnalisées en quelques secondes."
 }

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — SnapSong</title>
+    <title data-i18n-head="meta.title">Privacy Policy — SnapSong</title>
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <meta name="description" content="SnapSong Privacy Policy — Learn how we protect your data and photos with on-device processing and secure API integrations.">
+    <meta name="description" data-i18n-content="meta.description" content="SnapSong Privacy Policy — Learn how SnapSong handles photos, face data, local storage, and secure third-party AI integrations.">
     <link rel="stylesheet" href="/shared/css/base.css">
     <link rel="stylesheet" href="../assets/css/snapsong.css">
 </head>
@@ -32,15 +32,15 @@
         <div class="legal-section">
             <h1 data-i18n="privacy.title">Privacy Policy</h1>
             <div class="legal-meta">
-                <p><span data-i18n="privacy.effective">Effective:</span> <time datetime="2026-04-09">April 9, 2026</time></p>
-                <p><span data-i18n="privacy.lastUpdated">Last updated:</span> <time datetime="2026-04-09">April 9, 2026</time></p>
+                <p><span data-i18n="privacy.effective">Effective:</span> <time datetime="2026-04-18">April 18, 2026</time></p>
+                <p><span data-i18n="privacy.lastUpdated">Last updated:</span> <time datetime="2026-04-18">April 18, 2026</time></p>
             </div>
         </div>
 
         <!-- Introduction -->
         <div class="legal-section">
             <h2 data-i18n="privacy.intro.title">Introduction</h2>
-            <p data-i18n="privacy.intro.text">SnapSong is operated by TrueTapp – Mobile Apps Ltda, a company based in Brazil. This Privacy Policy explains what information we collect, how we use it, and the measures we take to protect your privacy. SnapSong is designed with privacy as a core principle: your photos and generated songs are processed on your device first, and we only send necessary data to third-party AI services when required to generate your music.</p>
+            <p data-i18n="privacy.intro.text">SnapSong is operated by TrueTapp – Mobile Apps Ltda, a company based in Brazil. This Privacy Policy explains what information we collect, how we use it, and the measures we take to protect your privacy. SnapSong lets you choose or capture a photo on your device and sends the data described below to third-party AI services only when you intentionally start song generation.</p>
         </div>
 
         <!-- Information We Collect -->
@@ -48,7 +48,7 @@
             <h2 data-i18n="privacy.collect.title">Information We Collect</h2>
 
             <h3 data-i18n="privacy.collect.userContent.title">User Content</h3>
-            <p data-i18n="privacy.collect.userContent.text">When you use SnapSong, you provide photos by capturing them with your device camera or selecting them from your library. These photos are processed to generate songs. The resulting song audio files, cover artwork, and original photos are stored locally on your device using SwiftData. No data leaves your device without your explicit action.</p>
+            <p data-i18n="privacy.collect.userContent.text">When you use SnapSong, you may choose a photo from your library or capture one with your device camera. Those photos may include people and visible facial features. When you start song generation, SnapSong uses the selected photo, your optional keywords, and the derived song assets needed to create your song. Song metadata is stored with SwiftData, while original photos, audio files, and cover artwork are stored as local files in the app sandbox on your device. No photo is sent to a third party unless you intentionally start song generation.</p>
 
             <h3 data-i18n="privacy.collect.usageData.title">Usage Data</h3>
             <p data-i18n="privacy.collect.usageData.text">We collect anonymous usage data about how you interact with the app, including feature usage patterns, session duration, and generation history. This data is not linked to your identity and helps us understand how the app is used to improve its performance and user experience.</p>
@@ -57,11 +57,28 @@
             <p data-i18n="privacy.collect.diagnostics.text">Crash logs, performance metrics, and other diagnostic information are collected automatically by Apple's systems. This data is not linked to your personal identity and is used to identify and fix technical issues.</p>
         </div>
 
+        <!-- Face Data -->
+        <div class="legal-section" id="face-data">
+            <h2 data-i18n="privacy.faceData.title">Face Data</h2>
+
+            <h3 data-i18n="privacy.faceData.definition.title">What We Mean by Face Data</h3>
+            <p data-i18n="privacy.faceData.definition.text">In SnapSong, “face data” means only the visible facial features that may appear in a photo you intentionally choose or capture for song generation. SnapSong does not create or store a faceprint, biometric template, face geometry, depth map, recognition profile, landmark map, or facial embedding from that photo.</p>
+
+            <h3 data-i18n="privacy.faceData.use.title">How Face Data Is Used</h3>
+            <p data-i18n="privacy.faceData.use.text">If your selected photo includes a face, SnapSong may send that photo to OpenAI only when you start song generation. OpenAI uses the photo for visual scene analysis and to produce derived creative inputs such as a photo brief, lyrics, title, and style needed to generate the song. SnapSong does not use face data for identity recognition, authentication, profiling, advertising, marketing, surveillance, analytics enrichment, or matching one person, user, or photo against another.</p>
+
+            <h3 data-i18n="privacy.faceData.sharing.title">Sharing, Storage, and Retention</h3>
+            <p data-i18n="privacy.faceData.sharing.text">OpenAI is the only third party that may receive a selected photo that contains face data, and it receives that photo only for the visual analysis described in this policy. Suno does not receive the photo or face data and receives only derived song inputs such as lyrics, title, and style. SnapSong stores the original photo locally in the app sandbox on your device and does not maintain its own server copy of that photo or its face data. That local photo remains on your device until you delete the related song or uninstall the app.</p>
+
+            <h3 data-i18n="privacy.faceData.biometric.title">Face ID and App Lock</h3>
+            <p data-i18n="privacy.faceData.biometric.text">SnapSong may let you enable Face ID or Touch ID App Lock through iOS LocalAuthentication. This feature is handled by Apple on your device. SnapSong does not receive, access, or store any Face ID template or other biometric template; the app only receives the authentication result and stores your local preference for whether App Lock is enabled.</p>
+        </div>
+
         <!-- How We Use Your Information -->
         <div class="legal-section">
             <h2 data-i18n="privacy.use.title">How We Use Your Information</h2>
             <ul>
-                <li data-i18n="privacy.use.service">To provide the SnapSong service and generate personalized songs from your photos</li>
+                <li data-i18n="privacy.use.service">To provide the SnapSong service by analyzing the photo you intentionally submit for generation and generating a personalized song from derived creative inputs</li>
                 <li data-i18n="privacy.use.improve">To improve the app's features, performance, and user experience</li>
                 <li data-i18n="privacy.use.bugs">To identify, troubleshoot, and fix technical issues and bugs</li>
                 <li data-i18n="privacy.use.communication">To communicate with you about important updates or changes to the service (if you contact us)</li>
@@ -73,13 +90,13 @@
             <h2 data-i18n="privacy.thirdParty.title">Third-Party Services</h2>
 
             <h3 data-i18n="privacy.thirdParty.openai.title">OpenAI</h3>
-            <p data-i18n="privacy.thirdParty.openai.text">Your photos are sent to OpenAI's API for visual analysis and lyric generation. OpenAI processes this data according to their API data usage policy and does not use API data to train or improve their models. For more details, consult <a href="https://openai.com/api/policies/api-data-usage-policies/" target="_blank">OpenAI's API Data Usage Policy</a>.</p>
+            <p data-i18n="privacy.thirdParty.openai.text">The selected photo you submit for generation is sent to OpenAI's Responses API for visual analysis, and derived text inputs may also be processed by OpenAI to generate lyrics, title, and style. OpenAI states that API data is not used to train its models by default. OpenAI also states that abuse monitoring logs may be retained for up to 30 days and that the Responses API has a 30-day application state retention period by default. For current details, please review <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank">OpenAI's data controls documentation</a>.</p>
 
             <h3 data-i18n="privacy.thirdParty.suno.title">Suno</h3>
-            <p data-i18n="privacy.thirdParty.suno.text">The generated lyrics and style parameters are sent to Suno's API for music generation. Suno creates the audio file based on this information. For details on how Suno handles your data, please review <a href="https://www.suno.com/privacy" target="_blank">Suno's Privacy Policy</a>.</p>
+            <p data-i18n="privacy.thirdParty.suno.text">SnapSong sends Suno only derived song inputs such as lyrics, title, and style to generate audio. SnapSong does not send Suno the original photo or face data. Suno states in its Privacy Notice that information is generally stored on servers located in the United States and retained as reasonably necessary for the purposes described there. For current details, please review <a href="https://about.suno.com/privacy" target="_blank">Suno's Privacy Notice</a>.</p>
 
             <h3 data-i18n="privacy.thirdParty.apple.title">Apple</h3>
-            <p data-i18n="privacy.thirdParty.apple.text">SnapSong uses Apple's built-in analytics and crash reporting systems through the App Store. Additionally, the Creative Intelligence Engine leverages Apple Foundation Models that run entirely on your device. Your musical history and preferences never leave your iPhone. For more information, see <a href="https://www.apple.com/privacy/" target="_blank">Apple's Privacy Policy</a>.</p>
+            <p data-i18n="privacy.thirdParty.apple.text">SnapSong uses Apple's built-in analytics and crash reporting systems through the App Store. SnapSong may also let you use Face ID or Touch ID App Lock through iOS LocalAuthentication, which is handled by Apple on your device. The app does not receive or store Face ID templates or other biometric templates. Additionally, the Creative Intelligence Engine leverages Apple Foundation Models that run entirely on your device. For more information, see <a href="https://www.apple.com/privacy/" target="_blank">Apple's Privacy Policy</a>.</p>
 
             <h3 data-i18n="privacy.thirdParty.note">Important Note</h3>
             <p data-i18n="privacy.thirdParty.noteSelling">SnapSong does not sell your data to any third parties. We do not use advertising SDKs or share your information with advertisers.</p>
@@ -88,21 +105,21 @@
         <!-- Data Storage & Security -->
         <div class="legal-section">
             <h2 data-i18n="privacy.storage.title">Data Storage & Security</h2>
-            <p data-i18n="privacy.storage.text">All user content—including songs, photos, and cover artwork—is stored locally on your device. SnapSong does not require user accounts, does not sync data to cloud servers, and does not maintain centralized databases of your content. This design ensures your music remains entirely under your control.</p>
+            <p data-i18n="privacy.storage.text">SnapSong stores song metadata locally with SwiftData and stores user content—including original photos, generated audio, and cover artwork—as local files in the app sandbox on your device. SnapSong does not require user accounts, does not sync your content to a TrueTapp cloud server, and does not maintain a centralized server copy of your original photos or face data. This design ensures your generated content remains under your control.</p>
             <p data-i18n="privacy.storage.security">We implement industry-standard security practices to protect data in transit when communicating with third-party APIs. However, no method of electronic storage is completely secure. We encourage you to use strong device passcodes and keep your iOS operating system up to date.</p>
         </div>
 
         <!-- On-Device Intelligence -->
         <div class="legal-section">
             <h2 data-i18n="privacy.onDevice.title">On-Device Intelligence</h2>
-            <p data-i18n="privacy.onDevice.text">SnapSong's Creative Intelligence Engine uses Apple Foundation Models, which run entirely on your device. Your musical history, preferences, and content are processed locally and never transmitted to external servers for analysis or training purposes.</p>
+            <p data-i18n="privacy.onDevice.text">SnapSong's Creative Intelligence Engine uses Apple Foundation Models, which run entirely on your device. The musical history and preference signals used by this feature are processed locally and are not transmitted to external servers for analysis or training.</p>
         </div>
 
         <!-- Data Retention -->
         <div class="legal-section">
             <h2 data-i18n="privacy.retention.title">Data Retention</h2>
             <p data-i18n="privacy.retention.text">Data stored on your device persists until you explicitly delete songs or uninstall the app. When you delete a song within SnapSong, all associated files (audio, cover art, and original photo) are removed from your device. Uninstalling the app removes all local SnapSong data from your device.</p>
-            <p data-i18n="privacy.retention.thirdParty">Requests sent to third-party APIs (OpenAI and Suno) are processed immediately and not stored by SnapSong. These services may retain data according to their own privacy policies. We recommend reviewing their policies for details on their data retention practices.</p>
+            <p data-i18n="privacy.retention.thirdParty">SnapSong does not keep its own server-side copy of requests sent to OpenAI and Suno after processing. OpenAI states in its current API data controls that abuse monitoring logs may be retained for up to 30 days and that the Responses API has a 30-day application state retention period by default. Suno states in its Privacy Notice that information is generally retained as reasonably necessary for the purposes described there. Because SnapSong does not send face data to Suno, Suno does not receive or retain face data from SnapSong.</p>
         </div>
 
         <!-- Children's Privacy -->

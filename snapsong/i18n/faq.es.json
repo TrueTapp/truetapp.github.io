@@ -55,5 +55,7 @@
   "faq.trouble.slow.q": "¿Por qué la generación tarda más de lo usual?",
   "faq.trouble.slow.a": "El tiempo de generación depende de la carga del servidor y tu conexión a internet. El audio de alta calidad tarda un poco más. Si ha pasado más de 10 minutos, intenta cancelar y reintentar.",
   "faq.trouble.contact.q": "Tengo otra pregunta. ¿Cómo puedo obtener ayuda?",
-  "faq.trouble.contact.a": "Puedes contactarnos en cualquier momento en <a href=\"mailto:snapsong@truetapp.com\">snapsong@truetapp.com</a>. Te responderemos lo antes posible."
+  "faq.trouble.contact.a": "Puedes contactarnos en cualquier momento en <a href=\"mailto:snapsong@truetapp.com\">snapsong@truetapp.com</a>. Te responderemos lo antes posible.",
+  "meta.title": "Preguntas Frecuentes — SnapSong",
+  "meta.description": "FAQ de SnapSong — Preguntas frecuentes sobre la generación de música con IA a partir de fotos."
 }
