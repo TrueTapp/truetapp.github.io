@@ -426,7 +426,17 @@ footer a:hover {
 /* Tablet */
 @media (max-width: 768px) {
     .nav-links {
+        display: flex;
+        gap: 0;
+    }
+
+    .nav-links > a {
         display: none;
+    }
+
+    #lang-switcher-mount {
+        display: inline-flex;
+        align-items: center;
     }
 
     .container {
@@ -445,6 +455,10 @@ footer a:hover {
     .btn-appstore {
         font-size: 14px;
         padding: 10px 16px;
+    }
+
+    .lang-btn {
+        padding: 8px 10px;
     }
 
     footer p {

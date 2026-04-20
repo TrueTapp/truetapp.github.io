@@ -577,7 +577,6 @@
     .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
     .trust-grid { grid-template-columns: 1fr; }
     .showcase-grid { grid-template-columns: 1fr; max-width: 340px; gap: 24px; }
-    .nav-links { display: none; }
     .intelligence-grid { grid-template-columns: 1fr; }
     .presskit-grid { grid-template-columns: 1fr; }
     .legal-section { padding: 24px 20px; }
