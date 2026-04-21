@@ -1,0 +1,21 @@
+{
+  "pressRelease.kicker": "<strong>PARA DIVULGAÇÃO IMEDIATA</strong>",
+  "pressRelease.title": "SnapSong é lançado e transforma qualquer foto em uma música original com IA",
+  "pressRelease.subtitle": "App para iOS 26 usa os Apple Foundation Models direto no dispositivo para gerar músicas com vocal, letra e capa a partir de uma única foto — desenvolvido por um brasileiro, 3× bolsista WWDC e ex-aluno da Apple Developer Academy",
+  "pressRelease.dateline": "<strong>PORTO ALEGRE — 20 de abril de 2026</strong> — A TrueTapp anunciou hoje o lançamento do <strong>SnapSong</strong>, um app de iOS que transforma qualquer foto em uma música original completa — com vocal, letra e capa de álbum gerados por IA — em poucos minutos. Construído nativamente para iOS 26 e com os Apple Foundation Models rodando no próprio dispositivo, o SnapSong já está disponível na App Store para iPhone, iPad e Mac com Apple Silicon.",
+  "pressRelease.kind": "O SnapSong é o primeiro app do tipo. Em vez de pedir para o usuário descrever a música que quer ouvir, ele interpreta a cena da foto — um pôr do sol, uma viagem, o cachorro no quintal — e compõe uma música que combina com a emoção da imagem. O usuário escolhe uma foto e, em poucos minutos, recebe uma música completa. Palavras-chave opcionais (um nome, uma lembrança, um sentimento) deixam o resultado ainda mais pessoal. Cada geração produz duas versões únicas.",
+  "pressRelease.tech": "O app é construído inteiramente em cima das tecnologias mais recentes da Apple: a linguagem visual <strong>Liquid Glass</strong> do iOS 26, <strong>ActivityKit</strong> para Live Activities e Dynamic Island, <strong>WidgetKit</strong> para widgets da Tela de Início e os <strong>Apple Foundation Models</strong> para uma engine de Inteligência Criativa rodando direto no iPhone — que analisa o histórico de músicas de cada usuário para sugerir novas direções e evitar resultados repetitivos, sem nunca enviar dados pra nuvem. O SnapSong traz acessibilidade completa: VoiceOver, Controle por Voz, Texto Maior, Interface Escura, Contraste Suficiente e Reduzir Movimento.",
+  "pressRelease.quote": "&quot;Fotos são memórias silenciosas. A gente tira centenas delas — pôr do sol, pessoas que a gente ama, momentos lindos aleatórios — e elas ficam mudas. Eu queria mudar isso,&quot; disse <strong>Henrique Velloso</strong>, fundador da TrueTapp e criador do SnapSong. &quot;O SnapSong não é uma ferramenta pra músico. É pra todo mundo — a sua mãe no aniversário, uma criança apontando a câmera pro cachorro. Uma foto, uma música. É essa a ideia.&quot;",
+  "pressRelease.bio": "Velloso é três vezes vencedor da bolsa WWDC Scholarship (2015, 2017 e 2018) e ex-aluno de uma das primeiras turmas da Apple Developer Academy no mundo. Ele desenvolve para plataformas Apple há mais de uma década.",
+  "pressRelease.availabilityTitle": "Disponibilidade e preço",
+  "pressRelease.availabilityBody": "O SnapSong está disponível hoje na App Store. Os planos Premium custam $9,99/semana e $49,99/ano. Músicas e letras são geradas em português, inglês, espanhol, francês e alemão — detectados automaticamente pelo idioma do aparelho. Todos os dados pessoais ficam no dispositivo.",
+  "pressRelease.appStore": "<strong>App Store:</strong> <a href=\"https://apps.apple.com/br/app/snapsong-ai-music-from-photo/id6758351507\" target=\"_blank\">https://apps.apple.com/br/app/snapsong-ai-music-from-photo/id6758351507</a>",
+  "pressRelease.website": "<strong>Site:</strong> <a href=\"https://snapsong.app\" target=\"_blank\">https://snapsong.app</a>",
+  "pressRelease.pressKit": "<strong>Press Kit:</strong> <a href=\"https://truetapp.github.io/snapsong/presskit/\">https://truetapp.github.io/snapsong/presskit/</a>",
+  "pressRelease.aboutTitle": "Sobre a TrueTapp",
+  "pressRelease.aboutBody": "A TrueTapp é um estúdio independente de apps para plataformas Apple, com sede no Brasil, fundado por Henrique Velloso. Seu portfólio inclui Messenger Multi for AI, Cartoon Maker – ToonFilter, RePrompt e Trap Raider.",
+  "pressRelease.mediaTitle": "Contato de imprensa",
+  "pressRelease.mediaEmail": "snapsong@truetapp.com",
+  "meta.title": "Press Release — SnapSong",
+  "meta.description": "Press release de lançamento do SnapSong."
+}
