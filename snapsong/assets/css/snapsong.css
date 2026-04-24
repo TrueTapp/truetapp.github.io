@@ -72,10 +72,6 @@
 }
 .showcase-item { display: flex; flex-direction: column; gap: 12px; transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1); }
 .showcase-item:hover { transform: translateY(-8px); }
-.showcase-screenshot {
-    border-radius: 28px; overflow: hidden;
-    box-shadow: 0 25px 80px rgba(0,0,0,0.5); border: 1px solid var(--glass-stroke);
-}
 .showcase-screenshot img { width: 100%; display: block; }
 .showcase-player {
     display: flex; align-items: center; gap: 12px;
