@@ -49,7 +49,7 @@
             <h2 data-i18n="privacy.collect.title">Information We Collect</h2>
 
             <h3 data-i18n="privacy.collect.userContent.title">User Content</h3>
-            <p data-i18n="privacy.collect.userContent.text">When you use SnapSong, you may choose a photo from your library or capture one with your device camera. Those photos may include people and visible facial features. When you start song generation, SnapSong uses the selected photo, your optional keywords, and the derived song assets needed to create your song. Song metadata is stored with SwiftData, while original photos, audio files, and cover artwork are stored as local files in the app sandbox on your device. No photo is sent to a third party unless you intentionally start song generation.</p>
+            <p data-i18n="privacy.collect.userContent.text">When you use SnapSong, you may choose a photo from your library or capture one with your device camera. Those photos may include people and visible facial features. When you start song generation, SnapSong uses the selected photo, your optional keywords, and the derived song assets needed to create your song. Song metadata is stored with SwiftData, while original photos and generated audio files are stored as local files in the app sandbox on your device. No photo is sent to a third party unless you intentionally start song generation.</p>
 
             <h3 data-i18n="privacy.collect.usageData.title">Usage Data</h3>
             <p data-i18n="privacy.collect.usageData.text">We collect anonymous usage data about how you interact with the app, including feature usage patterns, session duration, and generation history. This data is not linked to your identity and helps us understand how the app is used to improve its performance and user experience.</p>
@@ -109,7 +109,7 @@
         <!-- Data Storage & Security -->
         <div class="legal-section">
             <h2 data-i18n="privacy.storage.title">Data Storage & Security</h2>
-            <p data-i18n="privacy.storage.text">SnapSong stores song metadata locally with SwiftData and stores user content—including original photos, generated audio, and cover artwork—as local files in the app sandbox on your device. SnapSong does not require user accounts, does not sync your content to a TrueTapp cloud server, and does not maintain a centralized server copy of your original photos or face data. This design ensures your generated content remains under your control.</p>
+            <p data-i18n="privacy.storage.text">SnapSong stores song metadata locally with SwiftData and stores user content, including original photos and generated audio, as local files in the app sandbox on your device. SnapSong does not require user accounts, does not sync your content to a TrueTapp cloud server, and does not maintain a centralized server copy of your original photos or face data. This design ensures your generated content remains under your control.</p>
             <p data-i18n="privacy.storage.security">We implement industry-standard security practices to protect data in transit when communicating with third-party APIs. However, no method of electronic storage is completely secure. We encourage you to use strong device passcodes and keep your iOS operating system up to date.</p>
         </div>
 
@@ -122,7 +122,7 @@
         <!-- Data Retention -->
         <div class="legal-section">
             <h2 data-i18n="privacy.retention.title">Data Retention</h2>
-            <p data-i18n="privacy.retention.text">Data stored on your device persists until you explicitly delete songs or uninstall the app. When you delete a song within SnapSong, all associated files (audio, cover art, and original photo) are removed from your device. Uninstalling the app removes all local SnapSong data from your device.</p>
+            <p data-i18n="privacy.retention.text">Data stored on your device persists until you explicitly delete songs or uninstall the app. When you delete a song within SnapSong, the associated local files, including generated audio and the original photo, are removed from your device. Uninstalling the app removes all local SnapSong data from your device.</p>
             <p data-i18n="privacy.retention.thirdParty">SnapSong does not keep its own server-side copy of requests sent to OpenAI and Suno after processing. Face-data-specific retention details are described in the Face Data section above. OpenAI states in its current API data controls that abuse monitoring logs may be retained for up to 30 days and that the Responses API has a 30-day application state retention period by default. Suno states in its Privacy Notice that information is generally retained as reasonably necessary for the purposes described there. Because SnapSong does not send face data to Suno, Suno does not receive or retain face data from SnapSong.</p>
         </div>
 
